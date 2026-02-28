@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block saturs %}
-<h2>Pievienot speletaju</h2>
+<h2>Pievienot spēlētāju</h2>
+<!-- Veidlapa jauna spēlētāja pievienošanai -->
 <form method="post">
-    <label>Vards:</label>
+    <!-- Vārda ievades lauks -->
+    <label>Vārds:</label>
     <input type="text" name="vards">
-
+    <!-- Numura ievades lauks -->
     <label>Numurs:</label>
     <input type="number" name="numurs">
-
-    <label>Pozicija:</label>
+    <!-- Pozīcijas izvēle (izkrītošais saraksts) -->
+    <label>Pozīcija:</label>
     <select name="pozicija">
         <option value="Aizsargs">Aizsargs</option>
         <option value="Uzbrucējs (kreisais)">Uzbrucējs (kreisais)</option>
         <option value="Uzbrucējs (centra)">Uzbrucējs (centra)</option>
         <option value="Uzbrucējs (labais)">Uzbrucējs (labais)</option>
     </select>
-
-    <button type="submit">Saglabat</button>
+    <!-- Saglabāšanas poga -->
+    <button type="submit">Saglabāt</button>
 </form>
 {% endblock %}

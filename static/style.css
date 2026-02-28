@@ -5,12 +5,14 @@ body {
     background: #f5f5f5;
 }
 
+/* Augšējā josla (header) */
 header{
     background: #003366;
     color: white;
     padding: 10px 20px;
 }
 
+/* Apakšējā josla (footer) */
 footer {
     background: #003366;
     color: white;
@@ -18,15 +20,18 @@ footer {
     height: 45px;
 }
 
+/* Galvenais virsraksts */
 h1 {
     margin: 0;
 }
 
+/* Lietotāja informācijas bloks */
 .user-info {
     margin-top: 5px;
     font-size: 0.9em;
 }
 
+/* Galvenais satura bloks */
 main {
     background: white;
     padding: 20px;
@@ -34,16 +39,19 @@ main {
     margin-bottom: 10px;
 }
 
+/* Tabula - kopējais stils */
 table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 10px;
 }
 
+/* Tabulas un šūnu apmales */
 table, th, td {
     border: 1px solid #ccc;
 }
 
+/* Tabulas šūnas */
 th, td {
     padding: 5px;
     text-align: left;
@@ -67,6 +75,7 @@ th, td {
     background: #f8d7da;
 }
 
+/* Veidlapas stils */
 form {
     display: flex;
     flex-direction: column;
@@ -74,11 +83,13 @@ form {
     gap: 5px;
 }
 
+/* Poga */
 button {
     margin-top: 10px;
     padding: 5px 10px;
 }
 
+/* Hipersaites */
 a {
     color: #006D75;
     text-decoration: none;
@@ -86,6 +97,7 @@ a {
     transition: 0.2s ease;
 }
 
+/* Hipersaite hover stāvoklī */
 a:hover {
     text-decoration: underline;
 }

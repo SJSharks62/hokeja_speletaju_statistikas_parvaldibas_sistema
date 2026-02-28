@@ -2,11 +2,14 @@
 {% block saturs %}
 <h2>Statistika</h2>
 
+<!-- Poga "Pievienot statistiku" - redzama tikai administratoriem un treneriem -->
 {% if session.loma in ["Administrators", "Treneris"] %}
     <a href="{{ url_for('pievienot_statistiku') }}" class="btn">Pievienot statistiku</a>
 {% endif %}
 
+<!-- Filtrēšanas izvēlne -->
 <form method="get">
+    <!-- Spēlētāja filtrs -->
     <label>Filtrēt pēc spēlētāja:</label>
     <select name="speletaja_id">
         <option value="">-- visi --</option>
@@ -16,7 +19,7 @@
             </option>
         {% endfor %}
     </select>
-
+    <!-- Spēles filtrs -->
     <label>Filtrēt pēc spēles:</label>
     <select name="speles_id">
         <option value="">-- visas --</option>
@@ -27,10 +30,13 @@
         {% endfor %}
     </select>
 
+    <!-- Filtrēšanas poga -->
     <button type="submit">Filtrēt</button>
 </form>
 
+<!-- Datu tabula -->
 <table>
+    <!-- Tabulas virsraksti -->
     <tr>
         <th>Spēlētājs</th>
         <th>Numurs</th>
@@ -41,6 +47,7 @@
         <th>Piespēles</th>
         <th>Soda minūtes</th>
         <th>Metieni</th>
+        <!-- Darbības kolonna - tikai administratoriem -->
         {% if session.loma == "Administrators" %}
             <th>Darbības</th>
         {% endif %}
@@ -56,8 +63,10 @@
         <td>{{ r.piespeles }}</td>
         <td>{{ r.soda_minutes }}</td>
         <td>{{ r.metieni }}</td>
+        <!-- Dzēšanas poga - tikai administratoriem -->
         {% if session.loma == "Administrators" %}
         <td>
+            <!-- tiek prasīts apstiprinājums pirms dzēšanas -->
             <form method="post" action="{{ url_for('dzest_statistiku', id=r.id) }}" class="form_admin">
                 <button type="submit" onclick="return confirm('Dzēst statistiku?')">Dzēst</button>
             </form>

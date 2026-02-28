@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block saturs %}
+<!-- Veidlapa jaunas spēles pievienošanai -->
 <h2>Pievienot spēli</h2>
+
 <form method="post">
+    <!-- Datuma ievades lauks -->
     <label>Datums:</label>
     <input type="date" name="datums">
-
+    <!-- Pretinieka nosaukums -->
     <label>Pretinieks:</label>
     <input type="text" name="pretinieks">
-
+    <!-- Submit poga -->
     <button type="submit">Saglabāt</button>
 </form>
 {% endblock %}

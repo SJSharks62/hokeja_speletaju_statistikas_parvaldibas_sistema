@@ -2,15 +2,18 @@
 {% block saturs %}
 <h2>Spēles</h2>
 
+<!-- Poga "Pievienot spēli" - redzama tikai administratoriem un treneriem -->
 {% if session.loma in ["Administrators", "Treneris"] %}
     <a href="{{ url_for('pievienot_speli') }}" class="btn">Pievienot spēli</a>
 {% endif %}
 </br>
+
+<!-- Kārtošanas saites -->
 <th>Kārtot pēc:</th>
 <th><a href="?sort=datums">Datums</a> |</th>
 <th><a href="?sort=pretinieks">Pretinieks</a></th>
 
-
+<!-- Datu tabula -->
 <table>
     <tr>
         <th>Datums</th>
@@ -23,8 +26,10 @@
     <tr>
         <td>{{ g.datums }}</td>
         <td>{{ g.pretinieks }}</td>
+        <!-- Dzēšanas poga - tikai administratoriem -->
         {% if session.loma == "Administrators" %}
         <td>
+            <!-- prasa apstiprinājumu pirms dzēšanas -->
             <form method="post" action="{{ url_for('dzest_speli', speles_id=g.id) }}" class="form_admin">
                 <button type="submit" onclick="return confirm('Dzēst spēli?')">Dzēst</button>
             </form>

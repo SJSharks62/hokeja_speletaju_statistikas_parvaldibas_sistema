@@ -396,7 +396,7 @@ def dzest_statistiku(id):
     return redirect(url_for("statistika"))
 
 
-# Pārskati (kopējie rādītāji spēlētājiem)
+# Pārskats (kopējie rādītāji spēlētājiem)
 @app.route("/parskati")
 @prasa_lomu("Administrators", "Treneris", "Spēlētājs")
 def parskati():
@@ -427,7 +427,7 @@ def parskati():
 
     return render_template("reports.html", speletaju_parskats=speletaju_parskats)
 
-
+# Mans Profils (paroles maiņa - administratoriem arī lietotājvārda maiņa)
 @app.route("/profils", methods=["GET", "POST"])
 @prasa_lomu("Administrators", "Treneris", "Spēlētājs")
 def profils():
@@ -462,7 +462,7 @@ def profils():
     sav.close()
     return render_template("profile.html", lietotajs=lietotajs)
 
-
+# Jauns lietotājs (tikai admins) - ļauj izveidot jaunu lietotāju.
 @app.route("/lietotaji/pievienot", methods=["GET", "POST"])
 @prasa_lomu("Administrators")
 def pievienot_lietotaju():
@@ -474,7 +474,7 @@ def pievienot_lietotaju():
         if not lietotajvards or not parole or not loma:
             flash("Jāaizpilda visi lauki.", "br")
             return redirect(url_for("pievienot_lietotaju"))
-
+        # Parole tiek šifrēta un saglabāta kā hash, nevis kā teksts.
         parole_hash = generate_password_hash(parole)
         sav = iegut_savienojumu()
         cur = sav.cursor()

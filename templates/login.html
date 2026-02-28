@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block saturs %}
-<h2>Pieteiksanas</h2>
+<!-- Pieteikšanās skats -->
+<h2>Pieteikšanās</h2>
 <form method="post">
-    <label>Lietotajvards:</label>
+    <!-- Lietotājvārda ievades lauks -->
+    <label>Lietotājvārds:</label>
     <input type="text" name="lietotajvards">
 
+    <!-- Paroles ievades lauks (ievadītais teksts tiek slēpts) -->
     <label>Parole:</label>
     <input type="password" name="parole">
 
+    <!-- Submit poga -->
     <button type="submit">Pieteikties</button>
 </form>
 {% endblock %}

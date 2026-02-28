@@ -1,33 +1,44 @@
 {% extends "base.html" %}
 {% block saturs %}
 <h2>Pievienot statistiku</h2>
+
+<!-- Statistikas pievienošanas veidlapa -->
 <form method="post">
+    <!-- Spēlētāja izvēle (izkrītošais saraksts) -->
     <label>Spēlētājs:</label>
     <select name="speletaja_id">
+        <!-- Cikls iet caur spēlētājiem no datubāzes -->
         {% for s in speletaji %}
             <option value="{{ s.id }}">{{ s.vards }} #{{ s.numurs }}</option>
         {% endfor %}
     </select>
 
+    <!-- Spēles izvēle (izkrītošais saraksts) -->
     <label>Spēle:</label>
     <select name="speles_id">
+        <!-- Cikls iet caur spēlēm no datubāzes -->
         {% for g in speles %}
             <option value="{{ g.id }}">{{ g.datums }} vs {{ g.pretinieks }}</option>
         {% endfor %}
     </select>
 
+    <!-- Vārtu skaits -->
     <label>Vārti:</label>
     <input type="number" name="varti" value="0">
 
+    <!-- Piespēļu skaits -->
     <label>Piespēles:</label>
     <input type="number" name="piespeles" value="0">
 
+    <!-- Soda minūtes -->
     <label>Soda minūtes:</label>
     <input type="number" name="soda_minutes" value="0">
 
+    <!-- Metieni -->
     <label>Metieni:</label>
     <input type="number" name="metieni" value="0">
 
+    <!-- Saglabāšanas poga -->
     <button type="submit">Saglabāt</button>
 </form>
 {% endblock %}

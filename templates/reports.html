@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block saturs %}
 <h2>Pārskats</h2>
+
+<!-- Kārtošanas saites -->
 <th>Kārtot pēc:</th>
 <th><a href="?sort=varti">Vārti</a> |</th>
 <th><a href="?sort=piespeles">Piespēles</a> |</th>
 <th><a href="?sort=soda_min">Soda minūtes</a> |</th>
 <th><a href="?sort=metieni">Metieni</a></th>
+
+<!-- Datu tabula ar spēlētāju statistikas kopsavilkumu -->
 <table>
+    <!-- Tabulas virsraksti -->
     <tr>
         <th>Spēlētājs</th>
         <th>Numurs</th>
@@ -19,6 +24,7 @@
     <tr>
         <td>{{ r.vards }}</td>
         <td>{{ r.numurs }}</td>
+        <!-- "or 0" nodrošina, ka netiek paradīts None -->
         <td>{{ r.varti or 0 }}</td>
         <td>{{ r.piespeles or 0 }}</td>
         <td>{{ r.soda_min or 0 }}</td>

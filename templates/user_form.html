@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 {% block saturs %}
 <h2>Pievienot lietotāju</h2>
+<!-- Veidlapa jauna lietotāja izveidei -->
 <form method="post">
+    <!-- Lietotājvārda ievades lauks -->
     <label>Lietotājvārds:</label>
     <input type="text" name="lietotajvards">
 
+    <!-- Paroles ievades lauks (teksts tiek slēpts) -->
     <label>Parole:</label>
     <input type="password" name="parole">
 
+    <!-- Lomas izvēle (izkrītošais saraksts) -->
     <label>Loma:</label>
     <select name="loma">
         <option value="Administrators">Administrators</option>
         <option value="Treneris">Treneris</option>
         <option value="Spēlētājs">Spēlētājs</option>
     </select>
-
+    <!-- Submit poga -->
     <button type="submit">Izveidot</button>
 </form>
 {% endblock %}

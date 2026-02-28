@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 {% block saturs %}
 <h2>Mans profils</h2>
+<!-- Paroles maiņas skats -->
 <form method="post">
+    <!-- Sava profila ietotājvārda maiņa - iespējama tikai administratoriem -->
     {% if session.loma == "Administrators" %}
         <label>Jauns lietotājvārds:</label>
         <input type="text" name="lietotajvards" value="{{ lietotajs.lietotajvards }}">
     {% else %}
+        <!-- Treneri un spēlētāji var tikai skatīt savu lietotājvārdu -->
         <p>Lietotājvārds: {{ lietotajs.lietotajvards }}</p>
     {% endif %}
-
+    
+    <!-- Vecās paroles ievades lauks -->
     <label>Vecā parole:</label>
     <input type="password" name="veca_parole">
-
+    <!-- Jaunās paroles ievades lauks -->
     <label>Jaunā parole:</label>
     <input type="password" name="jauna_parole">
 
+    <!-- Saglabāšanas poga -->
     <button type="submit">Saglabāt</button>
 </form>
 {% endblock %}

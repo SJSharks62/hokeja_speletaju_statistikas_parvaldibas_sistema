@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block saturs %}
+<!-- Spēlētāja rediģēšanas skats -->
 <h2>Rediģēt spēlētāju</h2>
 <form method="post">
+    <!-- Vārda lauciņš (value no datubāzes) -->
     <label>Vārds:</label>
     <input type="text" name="vards" value="{{ speletajs.vards }}">
-
+    <!-- Numura lauciņš (cipars) -->
     <label>Numurs:</label>
     <input type="number" name="numurs" value="{{ speletajs.numurs }}">
-
+    <!-- Pozīcijas izvēle (select) -->
     <label>Pozīcija:</label>
     <select name="pozicija">
         <option value="Aizsargs" {% if speletajs.pozicija == "Aizsargs" %}selected{% endif %}>Aizsargs</option>
@@ -15,7 +17,7 @@
         <option value="Uzbrucējs (centra)" {% if speletajs.pozicija == "Uzbrucējs (centra)" %}selected{% endif %}>Uzbrucējs (centra)</option>
         <option value="Uzbrucējs (labais)" {% if speletajs.pozicija == "Uzbrucējs (labais)" %}selected{% endif %}>Uzbrucējs (labais)</option>
     </select>
-
+    <!-- Saglabāšanas poga -->
     <button type="submit">Saglabāt</button>
 </form>
 {% endblock %}

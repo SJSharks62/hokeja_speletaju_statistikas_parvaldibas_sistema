@@ -2,21 +2,26 @@
 {% block saturs %}
 <h2>Spēlētāji</h2>
 
+<!-- Saite "Pievienot spēlētāju" - redzama tikai administratoriem un treneriem -->
 {% if session.loma in ["Administrators", "Treneris"] %}
     <a href="{{ url_for('pievienot_speletaju') }}" class="btn">Pievienot spēlētāju</a>
 {% endif %}
 </br>
+
+<!-- Kārtošanas saites -->
 <th>Kārtot pēc:</th>
 <th><a href="?sort=vards">Vārds</a> |</th>
 <th><a href="?sort=numurs">Nr.</a> |</th>
 <th><a href="?sort=pozicija">Pozīcija</a></th>
 
-
+<!-- Datu tabula -->
 <table>
+    <!-- Tabulas virsraksti -->
     <tr>
         <th>Vārds</th>
         <th>Numurs</th>
         <th>Pozīcija</th>
+        <!-- Darbības kolonna - tikai administratoriem -->
         {% if session.loma == "Administrators" %}
             <th>Darbības</th>
         {% endif %}
@@ -26,11 +31,14 @@
         <td>{{ s.vards }}</td>
         <td>{{ s.numurs }}</td>
         <td>{{ s.pozicija }}</td>
+        <!-- Administratora darbības: dzēst un rediģēt -->
         {% if session.loma == "Administrators" %}
         <td>
+            <!-- Dzēšanas poga - tiek prasīts apstiprinājums pirms dzēšanas -->
             <form method="post" action="{{ url_for('dzest_speletaju', speletaja_id=s.id) }}" class="form_admin">
                 <button type="submit" onclick="return confirm('Dzēst spēlētāju?')">Dzēst</button>
             </form>
+            <!-- Rediģēšanas poga -->
             <form method="post" action="{{ url_for('rediget_speletaju', speletaja_id=s.id) }}" class="form_admin">
                 <button type="submit">Rediģēt</button>
             </form>
