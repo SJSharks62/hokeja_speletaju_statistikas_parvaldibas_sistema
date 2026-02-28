@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Rediģēt spēlētāju</h2>
+<form method="post">
+    <label>Vārds:</label>
+    <input type="text" name="vards" value="{{ speletajs.vards }}">
+
+    <label>Numurs:</label>
+    <input type="number" name="numurs" value="{{ speletajs.numurs }}">
+
+    <label>Pozīcija:</label>
+    <select name="pozicija">
+        <option value="Aizsargs" {% if speletajs.pozicija == "Aizsargs" %}selected{% endif %}>Aizsargs</option>
+        <option value="Uzbrucējs (kreisais)" {% if speletajs.pozicija == "Uzbrucējs (kreisais)" %}selected{% endif %}>Uzbrucējs (kreisais)</option>
+        <option value="Uzbrucējs (centra)" {% if speletajs.pozicija == "Uzbrucējs (centra)" %}selected{% endif %}>Uzbrucējs (centra)</option>
+        <option value="Uzbrucējs (labais)" {% if speletajs.pozicija == "Uzbrucējs (labais)" %}selected{% endif %}>Uzbrucējs (labais)</option>
+    </select>
+
+    <button type="submit">Saglabāt</button>
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Pievienot lietotāju</h2>
+<form method="post">
+    <label>Lietotājvārds:</label>
+    <input type="text" name="lietotajvards">
+
+    <label>Parole:</label>
+    <input type="password" name="parole">
+
+    <label>Loma:</label>
+    <select name="loma">
+        <option value="Administrators">Administrators</option>
+        <option value="Treneris">Treneris</option>
+        <option value="Spēlētājs">Spēlētājs</option>
+    </select>
+
+    <button type="submit">Izveidot</button>
+</form>
+{% endblock %}

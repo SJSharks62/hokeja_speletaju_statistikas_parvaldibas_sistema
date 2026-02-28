@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Pievienot speletaju</h2>
+<form method="post">
+    <label>Vards:</label>
+    <input type="text" name="vards">
+
+    <label>Numurs:</label>
+    <input type="number" name="numurs">
+
+    <label>Pozicija:</label>
+    <select name="pozicija">
+        <option value="Aizsargs">Aizsargs</option>
+        <option value="Uzbrucējs (kreisais)">Uzbrucējs (kreisais)</option>
+        <option value="Uzbrucējs (centra)">Uzbrucējs (centra)</option>
+        <option value="Uzbrucējs (labais)">Uzbrucējs (labais)</option>
+    </select>
+
+    <button type="submit">Saglabat</button>
+</form>
+{% endblock %}

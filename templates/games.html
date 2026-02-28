@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Spēles</h2>
+
+{% if session.loma in ["Administrators", "Treneris"] %}
+    <a href="{{ url_for('pievienot_speli') }}" class="btn">Pievienot spēli</a>
+{% endif %}
+</br>
+<th>Kārtot pēc:</th>
+<th><a href="?sort=datums">Datums</a> |</th>
+<th><a href="?sort=pretinieks">Pretinieks</a></th>
+
+
+<table>
+    <tr>
+        <th>Datums</th>
+        <th>Pretinieks</th>
+        {% if session.loma == "Administrators" %}
+            <th>Darbības</th>
+        {% endif %}
+    </tr>
+    {% for g in speles %}
+    <tr>
+        <td>{{ g.datums }}</td>
+        <td>{{ g.pretinieks }}</td>
+        {% if session.loma == "Administrators" %}
+        <td>
+            <form method="post" action="{{ url_for('dzest_speli', speles_id=g.id) }}" class="form_admin">
+                <button type="submit" onclick="return confirm('Dzēst spēli?')">Dzēst</button>
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

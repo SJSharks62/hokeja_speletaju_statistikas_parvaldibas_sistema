@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Mans profils</h2>
+<form method="post">
+    {% if session.loma == "Administrators" %}
+        <label>Jauns lietotājvārds:</label>
+        <input type="text" name="lietotajvards" value="{{ lietotajs.lietotajvards }}">
+    {% else %}
+        <p>Lietotājvārds: {{ lietotajs.lietotajvards }}</p>
+    {% endif %}
+
+    <label>Vecā parole:</label>
+    <input type="password" name="veca_parole">
+
+    <label>Jaunā parole:</label>
+    <input type="password" name="jauna_parole">
+
+    <button type="submit">Saglabāt</button>
+</form>
+{% endblock %}

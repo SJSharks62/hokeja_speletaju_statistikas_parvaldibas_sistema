@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="lv">
+<head>
+    <meta charset="utf-8">
+    <title>Hokeja statistikas sistēma</title>
+    <!-- Stila fails no static mapes -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<!-- Augšējā josla ar nosaukumu un navigāciju -->
+<header>
+    <h1>Hokeja spēlētāju statistikas pārvaldības sistēma</h1>
+    {% if session.get('lietotajvards') %}
+        <div class="user-info">
+            Lietotājs: {{ session.get('lietotajvards') }} ({{ session.get('loma') }})
+            | <a href="{{ url_for('sakums') }}">Sākums</a>
+            | <a href="{{ url_for('speletaji') }}">Spēlētāji</a>
+            | <a href="{{ url_for('speles') }}">Spēles</a>
+            | <a href="{{ url_for('statistika') }}">Statistika</a>
+            | <a href="{{ url_for('parskati') }}">Pārskats</a>
+            | <a href="{{ url_for('profils') }}">Mans profils</a> 
+            {% if session.loma == "Administrators" %} 
+                | <a href="{{ url_for('pievienot_lietotaju') }}">Jauns lietotājs</a> 
+            {% endif %}
+            | <a href="{{ url_for('izrakstities') }}">Izrakstīties</a>
+        </div>
+    {% endif %}
+</header>
+
+<!-- Galvenais saturs -->
+<main>
+    <!-- Flash ziņas (kļūdas/izdošanās paziņojumi) -->
+    {% with zinas = get_flashed_messages(with_categories=true) %}
+        {% if zinas %}
+            <ul class="flash">
+                {% for kategorija, zina in zinas %}
+                    <li class="{{ kategorija }}">{{ zina }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block saturs %}{% endblock %}
+</main>
+
+<!-- Kājene -->
+<footer>
+</footer>
+
+</body>
+</html>

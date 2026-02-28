@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Pievienot spēli</h2>
+<form method="post">
+    <label>Datums:</label>
+    <input type="date" name="datums">
+
+    <label>Pretinieks:</label>
+    <input type="text" name="pretinieks">
+
+    <button type="submit">Saglabāt</button>
+</form>
+{% endblock %}

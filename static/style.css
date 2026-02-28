@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
+    background: #f5f5f5;
+}
+
+header{
+    background: #003366;
+    color: white;
+    padding: 10px 20px;
+}
+
+footer {
+    background: #003366;
+    color: white;
+    padding: 10px 20px;
+    height: 45px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.user-info {
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+main {
+    background: white;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+.flash {
+    list-style: none;
+    padding: 0;
+}
+
+.flash li {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.flash li.ok {
+    background: #d4edda;
+}
+
+.flash li.br {
+    background: #f8d7da;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+a {
+    color: #006D75;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.form_admin {
+    display:inline;
+}

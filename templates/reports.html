@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Pārskats</h2>
+<th>Kārtot pēc:</th>
+<th><a href="?sort=varti">Vārti</a> |</th>
+<th><a href="?sort=piespeles">Piespēles</a> |</th>
+<th><a href="?sort=soda_min">Soda minūtes</a> |</th>
+<th><a href="?sort=metieni">Metieni</a></th>
+<table>
+    <tr>
+        <th>Spēlētājs</th>
+        <th>Numurs</th>
+        <th>Vārti</th>
+        <th>Piespēles</th>
+        <th>Soda minūtes</th>
+        <th>Metieni</th>
+    </tr>
+    {% for r in speletaju_parskats %}
+    <tr>
+        <td>{{ r.vards }}</td>
+        <td>{{ r.numurs }}</td>
+        <td>{{ r.varti or 0 }}</td>
+        <td>{{ r.piespeles or 0 }}</td>
+        <td>{{ r.soda_min or 0 }}</td>
+        <td>{{ r.metieni or 0 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

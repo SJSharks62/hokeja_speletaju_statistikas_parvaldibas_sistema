@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block saturs %}
+<h2>Statistika</h2>
+
+{% if session.loma in ["Administrators", "Treneris"] %}
+    <a href="{{ url_for('pievienot_statistiku') }}" class="btn">Pievienot statistiku</a>
+{% endif %}
+
+<form method="get">
+    <label>Filtrēt pēc spēlētāja:</label>
+    <select name="speletaja_id">
+        <option value="">-- visi --</option>
+        {% for s in speletaji %}
+            <option value="{{ s.id }}" {% if filtrs_speletaja_id == s.id|string %}selected{% endif %}>
+                {{ s.vards }} (#{{ s.numurs }})
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Filtrēt pēc spēles:</label>
+    <select name="speles_id">
+        <option value="">-- visas --</option>
+        {% for g in speles %}
+            <option value="{{ g.id }}" {% if filtrs_speles_id == g.id|string %}selected{% endif %}>
+                {{ g.datums }} | vs {{ g.pretinieks }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Filtrēt</button>
+</form>
+
+<table>
+    <tr>
+        <th>Spēlētājs</th>
+        <th>Numurs</th>
+        <th>Pozīcija</th>
+        <th>Datums</th>
+        <th>Pretinieks</th>
+        <th>Vārti</th>
+        <th>Piespēles</th>
+        <th>Soda minūtes</th>
+        <th>Metieni</th>
+        {% if session.loma == "Administrators" %}
+            <th>Darbības</th>
+        {% endif %}
+    </tr>
+    {% for r in statistika %}
+    <tr>
+        <td>{{ r.vards }}</td>
+        <td>{{ r.numurs }}</td>
+        <td>{{ r.pozicija }}</td>
+        <td>{{ r.datums }}</td>
+        <td>{{ r.pretinieks }}</td>
+        <td>{{ r.varti }}</td>
+        <td>{{ r.piespeles }}</td>
+        <td>{{ r.soda_minutes }}</td>
+        <td>{{ r.metieni }}</td>
+        {% if session.loma == "Administrators" %}
+        <td>
+            <form method="post" action="{{ url_for('dzest_statistiku', id=r.id) }}" class="form_admin">
+                <button type="submit" onclick="return confirm('Dzēst statistiku?')">Dzēst</button>
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
