@@ -1,0 +1,2 @@
+# hokeja_speletaju_statistikas_parvaldibas_sistema
+Hokeja spēlētāju statistikas pārvaldības sistēma
